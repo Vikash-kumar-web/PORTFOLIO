@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vikash Kumar · data science</title>
+  <!-- Tailwind CDN + Inter font -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    body { font-family: 'Inter', sans-serif; background: #030b11; }
+    /* subtle static grain / noise (very light, not glitter) */
+    .bg-noise {
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='1' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.08'/%3E%3C/svg%3E");
+      pointer-events: none;
+      position: fixed; inset: 0; z-index: -1;
+    }
+    /* sharp, thin borders — supabase style */
+    .card-subtle {
+      background-color: #0e141b;
+      border: 1px solid #1f2a36;
+      border-radius: 1.2rem;
+      transition: border 0.15s ease, background 0.15s;
+    }
+    .card-subtle:hover {
+      border-color: #2f80ed;
+      background-color: #121b25;
+    }
+    /* pill badges like razorpay */
+    .tech-pill {
+      background-color: #1a2735;
+      color: #b0cbff;
+      font-size: 0.7rem;
+      font-weight: 500;
+      padding: 0.25rem 0.9rem;
+      border-radius: 40px;
+      letter-spacing: -0.01em;
+      border: 0.5px solid #2c405b;
+      transition: 0.1s;
+      white-space: nowrap;
+    }
+    .tech-pill:hover { background: #233141; color: #d6e6ff; border-color: #3f70a7; }
+    /* headings clean no gradient */
+    .section-head {
+      font-size: 1.7rem;
+      font-weight: 550;
+      letter-spacing: -0.03em;
+      color: #eef4fa;
+      margin-bottom: 1.75rem;
+    }
+    /* subtle focus ring */
+    button, .btn-code { transition: all 0.15s; }
+    .btn-code {
+      background: transparent;
+      border: 1px solid #2f4057;
+      color: #c1d9f0;
+      padding: 0.3rem 1.2rem;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .btn-code:hover {
+      border-color: #2f80ed;
+      background: #0f1f31;
+      color: white;
+    }
+    .social-icon {
+      color: #a0bbdb;
+      font-size: 1.4rem;
+      margin-right: 1.2rem;
+      transition: color 0.2s;
+    }
+    .social-icon:hover { color: #2f80ed; }
+    hr { border-color: #1f2f40; opacity: 0.5; }
+    /* no floating glow / particles */
+  </style>
+</head>
+<body class="antialiased text-[#e4ecf5]">
+
+  <!-- only static very subtle noise (no particles, no glow) -->
+  <div class="bg-noise"></div>
+
+  <main class="max-w-6xl mx-auto px-5 md:px-8 py-8 md:py-12">
+
+    <!-- HERO — clean, no abstract shape, no cringe glow -->
+    <section class="mb-20">
+      <div class="card-subtle p-8 md:p-10 flex flex-col md:flex-row md:items-center justify-between gap-8">
+        <div>
+          <h1 class="text-5xl md:text-6xl font-semibold tracking-tight text-white">Vikash Kumar</h1>
+          <p class="text-xl md:text-2xl text-[#b6d0f0] mt-2">Python Developer •  ML Enthusiast</p>
+          <p class="text-base text-[#90a9c4] max-w-xl mt-3 leading-relaxed">
+            Building intelligent systems using data, machine learning, and real-world experimentation.
+          </p>
+          <!-- CTA row -->
+          <div class="flex flex-wrap gap-3 mt-7">
+            <a href="#projects" class="bg-[#1c2a3a] hover:bg-[#2f4057] border border-[#3467a1] text-white px-6 py-2.5 rounded-full text-sm font-medium inline-flex items-center gap-2 transition"><i class="fas fa-folder-open"></i> View Projects</a>
+            <a href="#" class="border border-[#2f4b70] hover:border-[#2f80ed] hover:bg-[#0f263b] text-[#d1e2ff] px-6 py-2.5 rounded-full text-sm font-medium inline-flex items-center gap-2 transition"><i class="fas fa-download"></i> Download Resume</a>
+            <a href="#contact" class="border border-[#2f4b70] hover:border-[#2f80ed] hover:bg-[#0f263b] text-[#d1e2ff] px-6 py-2.5 rounded-full text-sm font-medium inline-flex items-center gap-2 transition"><i class="fas fa-paper-plane"></i> Contact Me</a>
+          </div>
+          <!-- social icons -->
+          <div class="mt-6">
+            <a href="https://github.com/Vikash-kumar-web" target="_blank" class="social-icon"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/vikash-kumar-b4272629b" target="_blank" class="social-icon"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:vikashsinghkaundilya@gmail.com" class="social-icon"><i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
+        <!-- no more weird blob, just minimal empty spacer (removed cringe) -->
+      </div>
+    </section>
+
+    <!-- ABOUT + quick highlights (compact, razorpay style) -->
+    <section class="mb-20">
+      <h2 class="section-head">About</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <!-- about text card -->
+        <div class="card-subtle p-7">
+          <p class="text-[#c7dbf5] text-base leading-relaxed">
+            Vikash Kumar is a BCA student at Jain University with a strong foundation in Python, Machine Learning, and Data Science. Passionate about building intelligent systems that solve real-world problems through data-driven approaches. Skilled in data preprocessing, model development, and building ML-powered applications.
+          </p>
+        </div>
+        <!-- highlight card compact -->
+        <div class="card-subtle p-7">
+          <div class="flex items-center gap-2 text-lg font-medium text-white mb-3"><i class="fas fa-bolt text-[#2f80ed]"></i> quick highlights</div>
+          <ul class="space-y-2 text-[#b7ceec]">
+            <li class="flex items-center gap-2"><i class="fas fa-graduation-cap text-[#2f80ed] text-xs"></i> BCA Student – Jain University</li>
+            <li class="flex items-center gap-2"><i class="fas fa-star text-[#2f80ed] text-xs"></i> CGPA: 8.61</li>
+            <li class="flex items-center gap-2"><i class="fas fa-brain text-[#2f80ed] text-xs"></i> Passionate about AI & Data Science</li>
+            
+          </ul>
+          <div class="flex gap-2 mt-4">
+            <span class="tech-pill">Python</span><span class="tech-pill">ML</span><span class="tech-pill">SQL</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS (SaaS style, clean) -->
+    <section class="mb-20">
+      <h2 class="section-head">Technical skills</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="card-subtle p-6">
+          <h3 class="font-medium text-white mb-3 text-base">Languages</h3>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="tech-pill">Python</span><span class="tech-pill">Java</span><span class="tech-pill">C</span><span class="tech-pill">C++</span><span class="tech-pill">SQL</span>
+          </div>
+        </div>
+        <div class="card-subtle p-6">
+          <h3 class="font-medium text-white mb-3 text-base">Libraries</h3>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="tech-pill">Pandas</span><span class="tech-pill">NumPy</span><span class="tech-pill">Scikit-learn</span><span class="tech-pill">OpenCV</span>
+          </div>
+        </div>
+        <div class="card-subtle p-6">
+          <h3 class="font-medium text-white mb-3 text-base">Tools</h3>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="tech-pill">Git</span><span class="tech-pill">GitHub</span><span class="tech-pill">Streamlit</span>
+          </div>
+        </div>
+        <div class="card-subtle p-6">
+          <h3 class="font-medium text-white mb-3 text-base">Web</h3>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="tech-pill">HTML</span><span class="tech-pill">CSS</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS (cards with minimal hover) -->
+    <section id="projects" class="mb-20">
+      <h2 class="section-head">Featured projects</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <!-- 1 -->
+        <div class="card-subtle p-6 flex flex-col">
+          <h3 class="text-xl font-medium text-white tracking-tight">🎬 Movie Recommendation</h3>
+          <p class="text-sm text-[#a3bedd] mt-1 leading-relaxed">Content-based · TF-IDF, cosine sim · 5000+ movies · TMDb API</p>
+          <div class="flex flex-wrap gap-1 mt-4">
+            <span class="tech-pill">Python</span><span class="tech-pill">Pandas</span><span class="tech-pill">scikit-learn</span><span class="tech-pill">Streamlit</span>
+          </div>
+          <div class="mt-5 flex items-center gap-4">
+            <a href="https://github.com/Vikash-kumar-web/MOVIE_RECOMMENDATION_SYSTEM" target="_blank" class="btn-code"><i class="fab fa-github"></i> code</a>
+          </div>
+        </div>
+        <!-- 2 -->
+        <div class="card-subtle p-6 flex flex-col">
+          <h3 class="text-xl font-medium text-white tracking-tight">👤 Face Recognition Attendance</h3>
+          <p class="text-sm text-[#a3bedd] mt-1 leading-relaxed">OpenCV real-time detection · SQLite records · auto attendance</p>
+          <div class="flex flex-wrap gap-1 mt-4">
+            <span class="tech-pill">Python</span><span class="tech-pill">OpenCV</span><span class="tech-pill">SQLite</span>
+          </div>
+          <div class="mt-5 flex items-center gap-4">
+            <a href="https://github.com/Vikash-kumar-web/FACE_RECOGNITION_ATTENDANCE" target="_blank" class="btn-code"><i class="fab fa-github"></i> code</a>
+          </div>
+        </div>
+        <!-- 3 -->
+        <div class="card-subtle p-6 flex flex-col">
+          <h3 class="text-xl font-medium text-white tracking-tight">🩺 AI Doctor Application</h3>
+          <p class="text-sm text-[#a3bedd] mt-1 leading-relaxed">Disease prediction · supervised learning · feature selection</p>
+          <div class="flex flex-wrap gap-1 mt-4">
+            <span class="tech-pill">Python</span><span class="tech-pill">ML</span><span class="tech-pill">Streamlit</span>
+          </div>
+          <div class="mt-5 flex items-center gap-4">
+            <a href="https://github.com/Vikash-kumar-web/Ai_Doctor_app-main-2" target="_blank" class="btn-code"><i class="fab fa-github"></i> code</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION + COURSEWORK (compact) -->
+    <section class="mb-20">
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="card-subtle p-7">
+          <h2 class="section-head !text-2xl mt-0 mb-3">🎓 Education</h2>
+          <div class="text-xl font-medium text-white">Jain University</div>
+          <div class="text-[#97b5db]">Bachelor of Computer Applications (BCA) · 2023 – 2026</div>
+          <div class="text-lg font-medium text-white mt-2">CGPA: 8.61</div>
+        </div>
+        <div class="card-subtle p-7">
+          <h3 class="text-lg font-medium text-white mb-3">📚 Relevant Coursework</h3>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="tech-pill">Data Structures & Algorithms</span>
+            <span class="tech-pill">OOP</span>
+            <span class="tech-pill">Operating Systems</span>
+            <span class="tech-pill">DBMS</span>
+            <span class="tech-pill">Computer Networks</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+
+    <!-- CONTACT — razorpay style minimal form -->
+    <section id="contact" class="mb-16">
+      <h2 class="section-head">Contact</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="card-subtle p-7">
+          <div class="space-y-4">
+            <div class="flex items-center gap-3"><i class="fas fa-envelope w-5 text-[#2f80ed]"></i> <span class="text-[#b6d0f0]">vikashsinghkaundilya@gmail.com</span></div>
+            <div class="flex items-center gap-3"><i class="fas fa-phone-alt w-5 text-[#2f80ed]"></i> <span class="text-[#b6d0f0]">+91-6202371814</span></div>
+            <div class="flex items-center gap-3"><i class="fas fa-map-marker-alt w-5 text-[#2f80ed]"></i> <span class="text-[#b6d0f0]">Bangalore, India</span></div>
+          </div>
+        </div>
+        
+    </div>
+
+  </main>
+
+  <!-- zero particles / floating nonsense, no fade-up garbage (everything clean) -->
+</body>
+</html>
